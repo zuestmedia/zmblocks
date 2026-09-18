@@ -1,0 +1,3 @@
+.editor-styles-wrapper .wp-block-zmblocks-grid { min-width: 0; outline: 1px dashed transparent; &.is-selected, &.has-child-selected { outline-color: #949494; } > .block-list-appender { position: relative; } }
+.editor-styles-wrapper .wp-block-zmblocks-grid:empty { min-height: 48px; }
+.zmblocks-layout-presets { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }

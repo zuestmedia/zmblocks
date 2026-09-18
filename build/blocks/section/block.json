@@ -1,0 +1,142 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zmblocks/section",
+  "version": "1.0.0",
+  "title": "ZM Section",
+  "category": "zmblocks",
+  "icon": "align-full-width",
+  "description": "Organize content in a section with background and vertical spacing.",
+  "keywords": [
+    "layout",
+    "section",
+    "uikit"
+  ],
+  "textdomain": "zmblocks",
+  "attributes": {
+    "background": {
+      "type": "string",
+      "enum": [
+        "none",
+        "default",
+        "muted",
+        "primary",
+        "secondary"
+      ],
+      "default": "none"
+    },
+    "size": {
+      "type": "string",
+      "enum": [
+        "default",
+        "none",
+        "xsmall",
+        "small",
+        "large",
+        "xlarge"
+      ],
+      "default": "default"
+    },
+    "tagName": {
+      "type": "string",
+      "enum": [
+        "div",
+        "section"
+      ],
+      "default": "div"
+    },
+    "preserveColor": {
+      "type": "boolean",
+      "default": false
+    },
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "viewportHeight": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "25",
+        "50",
+        "75",
+        "100"
+      ],
+      "default": "auto"
+    },
+    "verticalAlignment": {
+      "type": "string",
+      "enum": [
+        "top",
+        "center",
+        "bottom"
+      ],
+      "default": "top"
+    },
+    "surfaceColor": {
+      "type": "string",
+      "default": ""
+    },
+    "textColor": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundImageId": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0
+    },
+    "backgroundImageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundSize": {
+      "type": "string",
+      "enum": [
+        "cover",
+        "contain",
+        "auto"
+      ],
+      "default": "cover"
+    },
+    "backgroundPosition": {
+      "type": "string",
+      "enum": [
+        "top left",
+        "top center",
+        "top right",
+        "center left",
+        "center center",
+        "center right",
+        "bottom left",
+        "bottom center",
+        "bottom right"
+      ],
+      "default": "center center"
+    },
+    "contentWidth": {
+      "type": "string",
+      "enum": [
+        "none",
+        "default",
+        "xsmall",
+        "small",
+        "large",
+        "xlarge",
+        "expand"
+      ],
+      "default": "default"
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

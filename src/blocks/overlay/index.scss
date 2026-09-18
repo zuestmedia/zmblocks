@@ -1,0 +1,7 @@
+@use './view';
+.editor-styles-wrapper .zmblocks-overlay > .zmblocks-overlay-content { opacity:1; transform:none; pointer-events:auto; }
+.editor-styles-wrapper .zmblocks-overlay > .zmblocks-image { min-height:180px; }
+.editor-styles-wrapper .zmblocks-overlay { width:100%; display:flex; flex-direction:column; overflow:visible; }
+.editor-styles-wrapper .zmblocks-overlay > .zmblocks-overlay-content { align-self:stretch; min-height:60px; position:relative; }
+.editor-styles-wrapper .zmblocks-overlay > .zmblocks-image { width:100%; }
+.editor-styles-wrapper .zmblocks-overlay > .wp-block-post-featured-image { width:100%; min-height:180px; }

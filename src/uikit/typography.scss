@@ -1,0 +1,7 @@
+@import 'uikit/src/scss/variables';
+@import 'uikit/src/scss/components/heading';
+@import 'uikit/src/scss/components/text';
+
+// Core RichText stays intact: no span insertion into saved headings.
+.uk-heading-line { display: flex; align-items: center; gap: .5em; }
+.uk-heading-line::before, .uk-heading-line::after { content: ''; flex: 1; border-bottom: 1px solid #e5e5e5; }

@@ -1,0 +1,170 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zmblocks/card",
+  "version": "1.0.0",
+  "title": "ZM Card",
+  "category": "zmblocks",
+  "icon": "index-card",
+  "description": "A card with direct content, backgrounds, links and adjustable rounded corners.",
+  "keywords": [
+    "card",
+    "uikit"
+  ],
+  "textdomain": "zmblocks",
+  "attributes": {
+    "variant": {
+      "type": "string",
+      "enum": [
+        "none",
+        "default",
+        "primary",
+        "secondary"
+      ],
+      "default": "default"
+    },
+    "size": {
+      "type": "string",
+      "enum": [
+        "default",
+        "small",
+        "large",
+        "none"
+      ],
+      "default": "default"
+    },
+    "hover": {
+      "type": "boolean",
+      "default": false
+    },
+    "tagName": {
+      "type": "string",
+      "enum": [
+        "div",
+        "article"
+      ],
+      "default": "div"
+    },
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "surfaceColor": {
+      "type": "string",
+      "default": ""
+    },
+    "textColor": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundImageId": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0
+    },
+    "backgroundImageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundSize": {
+      "type": "string",
+      "enum": [
+        "cover",
+        "contain",
+        "auto"
+      ],
+      "default": "cover"
+    },
+    "backgroundPosition": {
+      "type": "string",
+      "enum": [
+        "top left",
+        "top center",
+        "top right",
+        "center left",
+        "center center",
+        "center right",
+        "bottom left",
+        "bottom center",
+        "bottom right"
+      ],
+      "default": "center center"
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "linkLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "newTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "shadow": {
+      "type": "string",
+      "enum": [
+        "none",
+        "small",
+        "medium",
+        "large"
+      ],
+      "default": "none"
+    },
+    "radius": {
+      "type": "string",
+      "default": "0"
+    },
+    "filterTags": {
+      "type": "string",
+      "default": ""
+    },
+    "radiusIndividual": {
+      "type": "boolean",
+      "default": false
+    },
+    "radiusTopLeft": {
+      "type": "string",
+      "default": ""
+    },
+    "radiusTopRight": {
+      "type": "string",
+      "default": ""
+    },
+    "radiusBottomRight": {
+      "type": "string",
+      "default": ""
+    },
+    "radiusBottomLeft": {
+      "type": "string",
+      "default": ""
+    },
+    "textAlign": {
+      "type": "string",
+      "enum": [
+        "",
+        "left",
+        "center",
+        "right",
+        "justify"
+      ],
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true,
+      "__experimentalDefaultControls": {
+        "padding": true,
+        "margin": true
+      }
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

@@ -1,0 +1,8 @@
+{
+  "zmHeadingSize": ["", "small", "medium", "large", "xlarge", "2xlarge", "3xlarge"],
+  "zmHeadingDecoration": ["", "divider", "bullet", "line"],
+  "zmTextStyle": ["", "lead", "meta"],
+  "zmTextSize": ["", "small", "default", "large"],
+  "zmTextWeight": ["", "light", "normal", "bold", "lighter", "bolder"],
+  "zmTextTransform": ["", "uppercase", "lowercase", "capitalize"]
+}

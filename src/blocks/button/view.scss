@@ -1,0 +1,13 @@
+.zmblocks-button { min-width: 0; }
+.zmblocks-button .zmblocks-button-control {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5em;
+  box-sizing: border-box; max-width: 100%; text-decoration: none;
+}
+.zmblocks-button .zmblocks-button-label { min-width: 0; overflow-wrap: anywhere; }
+.zmblocks-button .zmblocks-button-icon { display: inline-flex; flex-shrink: 0; }
+.zmblocks-button .zmblocks-button-icon svg { display: block; width: 1.2em; height: 1.2em; fill: currentColor; }
+.zmblocks-button .zmblocks-button-control:focus-visible { outline: 2px solid #2271b1; outline-offset: 3px; box-shadow: 0 0 0 2px #fff; }
+.zmblocks-button.zmblocks-button-align-left { text-align: left; }
+.zmblocks-button.zmblocks-button-align-center { text-align: center; }
+.zmblocks-button.zmblocks-button-align-right { text-align: right; }
+.zmblocks-button.zmblocks-button-full > .zmblocks-button-control { width: 100%; }

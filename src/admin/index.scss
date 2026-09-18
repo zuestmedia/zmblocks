@@ -1,0 +1,12 @@
+.zmblocks-overview {
+  max-width: 960px;
+
+  .widefat th {
+    width: 35%;
+    font-weight: 600;
+  }
+
+  .widefat td {
+    overflow-wrap: anywhere;
+  }
+}

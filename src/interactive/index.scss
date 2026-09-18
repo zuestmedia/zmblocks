@@ -1,0 +1,10 @@
+// Only the private lightbox template is styled. No global reset or UIkit boot.
+.zmblocks-lightbox.uk-lightbox { display:none; position:fixed; inset:0; z-index:1010; overflow:hidden; background:rgba(0,0,0,.94); color:white; touch-action:pinch-zoom; }
+.zmblocks-lightbox.uk-open { display:block; }
+.zmblocks-lightbox > .uk-lightbox-items { position:absolute; inset:0; margin:0; padding:0; list-style:none; overflow:hidden; }
+.zmblocks-lightbox > .uk-lightbox-items > * { position:absolute; inset:0; display:none; align-items:center; justify-content:center; overflow:auto; touch-action:pan-y pinch-zoom; }
+.zmblocks-lightbox > .uk-lightbox-items > .uk-active { display:flex; }
+.zmblocks-lightbox .uk-lightbox-items img { max-width:100vw; max-height:100vh; width:auto; height:auto; object-fit:contain; }
+.zmblocks-lightbox > .zmblocks-lightbox-close { position:absolute; top:16px; right:16px; z-index:2; padding:12px 18px; border:1px solid white; background:#222; color:#fff; font:inherit; cursor:pointer; }
+.zmblocks-lightbox button:focus-visible { outline:3px solid #fff; outline-offset:3px; }
+@media (prefers-reduced-motion:reduce) { .zmblocks-lightbox * { transition-duration:0s !important; animation-duration:0s !important; } }

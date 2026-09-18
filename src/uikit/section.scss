@@ -1,0 +1,10 @@
+// Only variables (no emitted styles) and the Section component from the pinned UIkit source.
+@import 'uikit/src/scss/variables';
+@import 'uikit/src/scss/components/section';
+
+// Tiny utilities actually used by this block. No global typography or UIkit Base import.
+.uk-section-default:not(.uk-preserve-color), .uk-section-muted:not(.uk-preserve-color) { color: $global-color; }
+.uk-section-primary:not(.uk-preserve-color), .uk-section-secondary:not(.uk-preserve-color) {
+  color: $global-inverse-color;
+  :where(h1, h2, h3, h4, h5, h6, p, a):not(.has-text-color):not(.uk-button) { color: inherit; }
+}

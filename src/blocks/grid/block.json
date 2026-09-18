@@ -1,0 +1,194 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zmblocks/grid",
+  "version": "1.0.0",
+  "title": "ZM Grid",
+  "category": "zmblocks",
+  "icon": "grid-view",
+  "description": "Responsive grid with Column wrappers containing any blocks.",
+  "keywords": [
+    "grid",
+    "uikit"
+  ],
+  "textdomain": "zmblocks",
+  "attributes": {
+    "columns": {
+      "type": "string",
+      "enum": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "default": "1"
+    },
+    "columnsSmall": {
+      "type": "string",
+      "enum": [
+        "",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "default": "2"
+    },
+    "columnsMedium": {
+      "type": "string",
+      "enum": [
+        "",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "default": "2"
+    },
+    "columnsLarge": {
+      "type": "string",
+      "enum": [
+        "",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "default": "2"
+    },
+    "gap": {
+      "type": "string",
+      "enum": [
+        "default",
+        "collapse",
+        "small",
+        "medium",
+        "large"
+      ],
+      "default": "default"
+    },
+    "divider": {
+      "type": "boolean",
+      "default": false
+    },
+    "equalHeight": {
+      "type": "boolean",
+      "default": false
+    },
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "justify": {
+      "type": "string",
+      "enum": [
+        "left",
+        "center",
+        "right",
+        "between",
+        "around"
+      ],
+      "default": "left"
+    },
+    "alignItems": {
+      "type": "string",
+      "enum": [
+        "stretch",
+        "top",
+        "middle",
+        "bottom",
+        "baseline"
+      ],
+      "default": "stretch"
+    },
+    "direction": {
+      "type": "string",
+      "enum": [
+        "row",
+        "row-reverse",
+        "column",
+        "column-reverse"
+      ],
+      "default": "row"
+    },
+    "wrap": {
+      "type": "string",
+      "enum": [
+        "wrap",
+        "nowrap",
+        "wrap-reverse"
+      ],
+      "default": "wrap"
+    },
+    "alignContent": {
+      "type": "string",
+      "enum": [
+        "stretch",
+        "top",
+        "middle",
+        "bottom",
+        "between",
+        "around"
+      ],
+      "default": "stretch"
+    },
+    "scrollspy": {
+      "type": "string",
+      "enum": [
+        "none",
+        "fade",
+        "slide-top-small",
+        "slide-bottom-small",
+        "slide-left-small",
+        "slide-right-small",
+        "scale-up",
+        "scale-down"
+      ],
+      "default": "none"
+    },
+    "scrollspyDelay": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 100
+    },
+    "scrollspyRepeat": {
+      "type": "boolean",
+      "default": false
+    },
+    "masonry": {
+      "type": "string",
+      "enum": [
+        "none",
+        "pack",
+        "next"
+      ],
+      "default": "none"
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "__experimentalDefaultControls": {
+        "padding": true,
+        "margin": true
+      }
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

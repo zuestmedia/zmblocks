@@ -1,0 +1,20 @@
+// Works with partial external providers which do not include UIkit's padding utility.
+.zmblocks-section.uk-padding-remove-vertical {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+// Minimum height includes section padding. Small viewport units avoid mobile browser chrome.
+@each $height in 25, 50, 75, 100 {
+  .zmblocks-section.zmblocks-viewport-#{$height} { box-sizing: border-box; min-height: #{$height}vh; min-height: #{$height}svh; }
+}
+.zmblocks-section.zmblocks-vertical-center,
+.zmblocks-section.zmblocks-vertical-bottom { display: flex; flex-direction: column; }
+.zmblocks-section.zmblocks-vertical-center { justify-content: center; }
+.zmblocks-section.zmblocks-vertical-bottom { justify-content: flex-end; }
+.zmblocks-section.zmblocks-vertical-center > *,
+.zmblocks-section.zmblocks-vertical-bottom > * { flex-shrink: 0; }
+// A centered container must retain its available width inside the flex section.
+.zmblocks-section > .zmblocks-container { width: 100%; box-sizing: border-box; }
+.zmblocks-section-content { min-width: 0; }
+.zmblocks-section.zmblocks-custom-text :where(h1,h2,h3,h4,h5,h6,p):not(.has-text-color) { color: inherit; }

@@ -1,0 +1,49 @@
+{
+  "name": "zmblocks",
+  "version": "1.0.0",
+  "private": true,
+  "license": "GPL-2.0-or-later",
+  "engines": {
+    "node": ">=22.19.0",
+    "npm": ">=10"
+  },
+  "files": [
+    "app",
+    "build",
+    "languages/*.mo",
+    "languages/*.po",
+    "languages/*.pot",
+    "languages/*.json",
+    "languages/*.l10n.php",
+    "languages/README.md",
+    "zmblocks.php",
+    "readme.txt",
+    "LICENSE",
+    "src",
+    "package.json",
+    "package-lock.json",
+    "webpack.config.cjs",
+    "uikit-webpack.cjs"
+  ],
+  "scripts": {
+    "build": "wp-scripts build --config webpack.config.cjs",
+    "start": "wp-scripts start --config webpack.config.cjs",
+    "check": "node tools/check.mjs",
+    "test": "node tools/test.mjs",
+    "prepackage": "npm run build",
+    "package": "node tools/package.mjs"
+  },
+  "devDependencies": {
+    "@wordpress/block-editor": "17.1.0",
+    "@wordpress/blocks": "16.0.0",
+    "@wordpress/components": "40.1.0",
+    "@wordpress/data": "10.55.0",
+    "@wordpress/element": "8.7.0",
+    "@wordpress/i18n": "6.28.0",
+    "@wordpress/scripts": "35.0.0",
+    "jsdom": "26.1.0",
+    "postcss": "8.5.28",
+    "sass": "1.104.1",
+    "uikit": "3.23.12"
+  }
+}

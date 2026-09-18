@@ -1,0 +1,31 @@
+.zmblocks-image { box-sizing: border-box; width:100%; min-width: 0; margin-inline: 0; }
+.zmblocks-image > a, .zmblocks-image-media > a { display: block; }
+.zmblocks-image > img, .zmblocks-image > a > img, .zmblocks-image-media img { display: block; max-width: 100%; width: auto; height: auto; box-sizing: border-box; }
+@each $ratio, $value in ('1-1': '1 / 1', '4-3': '4 / 3', '3-2': '3 / 2', '16-9': '16 / 9', '3-4': '3 / 4') {
+  .zmblocks-image.zmblocks-image-ratio-#{$ratio} > img,
+  .zmblocks-image.zmblocks-image-ratio-#{$ratio} > a > img,
+  .zmblocks-image.zmblocks-image-ratio-#{$ratio} > .zmblocks-image-media img { aspect-ratio: #{$value}; }
+}
+@each $fit in cover, contain {
+  .zmblocks-image.zmblocks-image-fit-#{$fit} > img,
+  .zmblocks-image.zmblocks-image-fit-#{$fit} > a > img,
+  .zmblocks-image.zmblocks-image-fit-#{$fit} > .zmblocks-image-media img { object-fit: $fit; }
+}
+@each $position in center, top, bottom, left, right {
+  .zmblocks-image.zmblocks-image-position-#{$position} > img,
+  .zmblocks-image.zmblocks-image-position-#{$position} > a > img,
+  .zmblocks-image.zmblocks-image-position-#{$position} > .zmblocks-image-media img { object-position: $position; }
+}
+.zmblocks-image > figcaption { margin-top: .5em; font-size: .875em; }
+.zmblocks-image > .zmblocks-image-media { display:block; width:fit-content; max-width:100%; }
+.zmblocks-image.zmblocks-image-width-auto > .zmblocks-image-media { width:var(--zmblocks-image-natural-width,fit-content); }
+.zmblocks-image.zmblocks-image-width-auto > .zmblocks-image-media img { max-width:100%; }
+.zmblocks-image.zmblocks-image-width-full > .zmblocks-image-media { width:100%; }
+.zmblocks-image.zmblocks-image-width-custom > .zmblocks-image-media { width:var(--zmblocks-image-width,320px); }
+.zmblocks-image:is(.zmblocks-image-width-full,.zmblocks-image-width-custom) > .zmblocks-image-media img { width:100%; }
+.zmblocks-image-align-left > .zmblocks-image-media { margin-left:0; margin-right:auto; }
+.zmblocks-image-align-center > .zmblocks-image-media { margin-inline:auto; }
+.zmblocks-image-align-right > .zmblocks-image-media { margin-left:auto; margin-right:0; }
+.zmblocks-image-align-left > figcaption { text-align:left; }
+.zmblocks-image-align-center > figcaption { text-align:center; }
+.zmblocks-image-align-right > figcaption { text-align:right; }

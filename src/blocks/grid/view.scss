@@ -1,0 +1,100 @@
+@use 'sass:math';
+@use 'uikit/src/scss/variables' as *;
+
+// UIkit's flex grid and horizontal gutters; CSS supplies rows and widths without DOM mutations.
+.zmblocks-grid.uk-grid {
+  --zmblocks-grid-row-gap: #{$grid-gutter-vertical};
+  --zmblocks-grid-column-gap: #{$grid-gutter-horizontal};
+  row-gap: var(--zmblocks-grid-row-gap);
+  min-width: 0;
+  > .zmblocks-column { box-sizing: border-box; min-width: 0; max-width: none; --zmblocks-column-width: initial; --zmblocks-column-grow: initial; --zmblocks-column-basis: initial; flex: var(--zmblocks-column-grow, 0) 0 var(--zmblocks-column-basis, auto); margin-block: 0; }
+  > .block-list-appender { width: 100%; }
+}
+@media (min-width: $breakpoint-large) {
+  .zmblocks-grid.uk-grid { --zmblocks-grid-row-gap: #{$grid-gutter-vertical-l}; --zmblocks-grid-column-gap: #{$grid-gutter-horizontal-l}; }
+}
+@each $name, $gap in (collapse: 0px, small: $grid-small-gutter-horizontal, medium: $grid-medium-gutter-horizontal, large: $grid-large-gutter-horizontal) {
+  .zmblocks-grid.uk-grid.uk-grid-#{$name} { --zmblocks-grid-row-gap: #{$gap}; --zmblocks-grid-column-gap: #{$gap}; }
+}
+@media (min-width: $breakpoint-large) {
+  .zmblocks-grid.uk-grid.uk-grid-large { --zmblocks-grid-row-gap: #{$grid-large-gutter-vertical-l}; --zmblocks-grid-column-gap: #{$grid-large-gutter-horizontal-l}; }
+}
+.zmblocks-grid.uk-grid.zmblocks-grid-dividers > .zmblocks-column { position: relative; }
+.zmblocks-grid.uk-grid.zmblocks-grid-dividers > .zmblocks-column::before {
+  content: ''; position: absolute; inset-block: 0;
+  inset-inline-start: calc(var(--zmblocks-grid-column-gap) / 2);
+  border-inline-start: $grid-divider-border-width solid $grid-divider-border;
+  pointer-events: none;
+}
+@mixin columns($prefix) {
+  @for $count from 1 through 6 {
+    .zmblocks-grid.uk-grid.zmblocks-cols-#{$prefix}#{$count} > .zmblocks-column { width: var(--zmblocks-column-width, #{math.percentage(math.div(1, $count))}); }
+    .zmblocks-grid.uk-grid.zmblocks-grid-dividers.zmblocks-cols-#{$prefix}#{$count} > .zmblocks-column:nth-child(n)::before { display: block; }
+    .zmblocks-grid.uk-grid.zmblocks-grid-dividers.zmblocks-cols-#{$prefix}#{$count} > .zmblocks-column:nth-child(#{$count}n + 1)::before { display: none; }
+    @if $count == 1 {
+      .zmblocks-grid.uk-grid.zmblocks-grid-dividers.zmblocks-cols-#{$prefix}1 > .zmblocks-column:not(:first-child)::before {
+        display: block; inset-block: calc(var(--zmblocks-grid-row-gap) / -2) auto;
+        inset-inline: var(--zmblocks-grid-column-gap) 0; border-inline-start: 0;
+        border-block-start: $grid-divider-border-width solid $grid-divider-border;
+      }
+    } @else {
+      .zmblocks-grid.uk-grid.zmblocks-grid-dividers.zmblocks-cols-#{$prefix}#{$count} > .zmblocks-column:not(:first-child)::before {
+        inset-block: 0; inset-inline: calc(var(--zmblocks-grid-column-gap) / 2) auto;
+        border-block-start: 0; border-inline-start: $grid-divider-border-width solid $grid-divider-border;
+      }
+    }
+  }
+}
+@include columns('');
+@media (min-width: $breakpoint-small) { @include columns('s-'); }
+@media (min-width: $breakpoint-medium) { @include columns('m-'); }
+@media (min-width: $breakpoint-large) { @include columns('l-'); }
+.zmblocks-grid.uk-grid.zmblocks-grid-equal > .zmblocks-column { display: flex; flex-direction: column; }
+.zmblocks-grid.uk-grid.zmblocks-grid-equal > .zmblocks-column > :only-child { flex: 1; width: 100%; box-sizing: border-box; }
+
+@mixin individual-widths($suffix) {
+  @each $name,$width in ('1-1':100%,'1-2':50%,'1-3':33.333333%,'2-3':66.666667%,'1-4':25%,'3-4':75%,'1-5':20%,'2-5':40%,'3-5':60%,'4-5':80%,'1-6':16.666667%,'5-6':83.333333%,small:150px,medium:300px,large:450px,xlarge:600px,'2xlarge':750px,auto:auto,expand:auto) {
+    .zmblocks-grid.uk-grid > .zmblocks-column.uk-width-#{$name}#{$suffix} {
+      --zmblocks-column-width:#{$width}; --zmblocks-column-grow:0; --zmblocks-column-basis:auto;
+      @if $name == expand { --zmblocks-column-grow:1; --zmblocks-column-basis:0px; }
+    }
+  }
+  .zmblocks-grid.uk-grid > .zmblocks-column.zmblocks-width-grid#{$suffix} { --zmblocks-column-width:initial; --zmblocks-column-grow:0; --zmblocks-column-basis:auto; }
+  @each $name,$order in (first:-1,last:1,normal:0) { .zmblocks-grid.uk-grid > .zmblocks-column.uk-flex-#{$name}#{$suffix} { order:$order; } }
+}
+@include individual-widths('');
+@media(min-width:640px) { @include individual-widths('\\@s'); }
+@media(min-width:960px) { @include individual-widths('\\@m'); }
+@media(min-width:1200px) { @include individual-widths('\\@l'); }
+@media(min-width:1600px) { @include individual-widths('\\@xl'); }
+.zmblocks-grid.uk-grid {
+  @each $name,$value in (left:flex-start,center:center,right:flex-end,between:space-between,around:space-around) { &.uk-flex-#{$name} { justify-content:$value; } }
+  @each $name,$value in (top:flex-start,middle:center,bottom:flex-end,stretch:stretch,baseline:baseline) { &.uk-flex-#{$name} { align-items:$value; } }
+  @each $name in row,row-reverse,column,column-reverse { &.uk-flex-#{$name} { flex-direction:$name; } }
+  @each $name in wrap,nowrap,wrap-reverse { &.uk-flex-#{$name} { flex-wrap:$name; } }
+  @each $name,$value in (top:flex-start,middle:center,bottom:flex-end,stretch:stretch,between:space-between,around:space-around) { &.uk-flex-wrap-#{$name} { align-content:$value; } }
+  &.uk-flex-column,&.uk-flex-column-reverse { margin-left:0; > .zmblocks-column { padding-left:0; flex-grow:0; flex-basis:auto; } }
+}
+.zmblocks-grid > .zmblocks-column[class*="uk-animation-"] { animation-duration:.5s; animation-fill-mode:both; }
+.zmblocks-grid > .uk-animation-fade { animation-name:zmblocks-fade; }
+@keyframes zmblocks-fade { from{opacity:0} to{opacity:1} }
+@each $name,$transform in (slide-top-small:translateY(-20px),slide-bottom-small:translateY(20px),slide-left-small:translateX(-20px),slide-right-small:translateX(20px),scale-up:scale(.9),scale-down:scale(1.1)) {
+ .zmblocks-grid > .uk-animation-#{$name} { animation-name:zmblocks-#{$name}; }
+ @keyframes zmblocks-#{$name} { from {opacity:0;transform:$transform} to {opacity:1;transform:none} }
+}
+@media(prefers-reduced-motion:reduce) { .zmblocks-grid > .zmblocks-column[class*="uk-animation-"] { animation:none;opacity:1!important; } }
+.zmblocks-grid > .zmblocks-column:focus-within { opacity:1!important; }
+.zmblocks-grid.uk-grid.zmblocks-grid-dividers[data-zmblocks-lines-ready] > .zmblocks-column:nth-child(n)::before {
+ display:block; inset-block:0; inset-inline:calc(var(--zmblocks-grid-column-gap) / 2) auto; border-block-start:0; border-inline-start:$grid-divider-border-width solid $grid-divider-border;
+}
+.zmblocks-grid.uk-grid.zmblocks-grid-dividers[data-zmblocks-lines-ready] > .zmblocks-column[data-zmblocks-row-first="true"]:nth-child(n)::before { display:none; }
+.zmblocks-grid.uk-grid.zmblocks-grid-dividers[data-zmblocks-single-column="true"] > .zmblocks-column[data-zmblocks-first-row="false"]:nth-child(n)::before { display:block;inset-block:calc(var(--zmblocks-grid-row-gap) / -2) auto;inset-inline:var(--zmblocks-grid-column-gap) 0;border-inline-start:0;border-block-start:$grid-divider-border-width solid $grid-divider-border; }
+
+// Only initialized on the frontend. Row margins are measured by UIkit's Masonry.
+.zmblocks-grid.uk-grid.zmblocks-masonry-active {
+  margin-left:calc(-1 * var(--zmblocks-grid-column-gap)); row-gap:0; flex-direction:row; flex-wrap:wrap; justify-content:flex-start;
+  align-items:flex-start; align-content:flex-start;
+  > .zmblocks-column { order:0; padding-left:var(--zmblocks-grid-column-gap); }
+  > .zmblocks-column.zmblocks-masonry-row { margin-top:var(--zmblocks-grid-row-gap); }
+}
+

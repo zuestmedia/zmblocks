@@ -1,0 +1,18 @@
+{
+  "version": "3.23.12",
+  "css": [
+    "section",
+    "container",
+    "grid",
+    "card",
+    "button",
+    "typography"
+  ],
+  "js": [
+    "filter",
+    "lightbox",
+    "scrollspy",
+    "grid"
+  ],
+  "icons": "static-svg"
+}

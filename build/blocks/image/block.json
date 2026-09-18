@@ -1,0 +1,139 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zmblocks/image",
+  "version": "1.0.0",
+  "title": "ZM Image",
+  "category": "zmblocks",
+  "icon": "format-image",
+  "description": "A responsive media-library image with cropping and caption.",
+  "keywords": [
+    "image",
+    "uikit"
+  ],
+  "textdomain": "zmblocks",
+  "attributes": {
+    "id": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0
+    },
+    "url": {
+      "type": "string",
+      "default": ""
+    },
+    "alt": {
+      "type": "string",
+      "default": ""
+    },
+    "caption": {
+      "type": "string",
+      "default": ""
+    },
+    "sizeSlug": {
+      "type": "string",
+      "enum": [
+        "thumbnail",
+        "medium",
+        "medium_large",
+        "large",
+        "full"
+      ],
+      "default": "large"
+    },
+    "ratio": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "1-1",
+        "4-3",
+        "3-2",
+        "16-9",
+        "3-4"
+      ],
+      "default": "auto"
+    },
+    "fit": {
+      "type": "string",
+      "enum": [
+        "cover",
+        "contain"
+      ],
+      "default": "cover"
+    },
+    "position": {
+      "type": "string",
+      "enum": [
+        "center",
+        "top",
+        "bottom",
+        "left",
+        "right"
+      ],
+      "default": "center"
+    },
+    "linkDestination": {
+      "type": "string",
+      "enum": [
+        "none",
+        "media",
+        "custom",
+        "lightbox"
+      ],
+      "default": "none"
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "newTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlign": {
+      "type": "string",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "default": "left"
+    },
+    "widthMode": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "full",
+        "custom"
+      ],
+      "default": "auto"
+    },
+    "imageWidth": {
+      "type": "string",
+      "default": "320"
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "spacing": {
+      "padding": true,
+      "margin": true,
+      "__experimentalDefaultControls": {
+        "padding": true,
+        "margin": true
+      }
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

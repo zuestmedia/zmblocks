@@ -1,0 +1,92 @@
+{
+  "apiVersion": 3,
+  "version": "1.0.0",
+  "category": "zmblocks",
+  "textdomain": "zmblocks",
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php",
+  "name": "zmblocks/overlay",
+  "title": "ZM Overlay",
+  "icon": "cover-image",
+  "attributes": {
+    "visibility": {
+      "type": "string",
+      "default": "hover",
+      "enum": [
+        "hover",
+        "always"
+      ]
+    },
+    "variant": {
+      "type": "string",
+      "default": "primary",
+      "enum": [
+        "primary",
+        "default",
+        "none"
+      ]
+    },
+    "position": {
+      "type": "string",
+      "default": "center",
+      "enum": [
+        "center",
+        "top",
+        "bottom"
+      ]
+    },
+    "transition": {
+      "type": "string",
+      "default": "fade",
+      "enum": [
+        "fade",
+        "slide"
+      ]
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "linkLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "newTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "radius": {
+      "type": "string",
+      "default": "0"
+    },
+    "radiusIndividual": {
+      "type": "boolean",
+      "default": false
+    },
+    "radiusTopLeft": {
+      "type": "string",
+      "default": ""
+    },
+    "radiusTopRight": {
+      "type": "string",
+      "default": ""
+    },
+    "radiusBottomRight": {
+      "type": "string",
+      "default": ""
+    },
+    "radiusBottomLeft": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}

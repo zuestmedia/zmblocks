@@ -1,0 +1,5 @@
+.editor-styles-wrapper .wp-block-zmblocks-column {
+  min-height: 64px; min-width: 0; position: relative; outline: 1px dashed #dcdcde; outline-offset: -1px;
+  &.is-selected, &.has-child-selected { outline: 1px dashed #949494; outline-offset: -1px; }
+  > .block-list-appender { position: relative; }
+}

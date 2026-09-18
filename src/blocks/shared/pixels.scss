@@ -1,0 +1,5 @@
+.zmblocks-pixel-control { display:flex; align-items:flex-end; gap:8px; margin-bottom:16px; }
+.zmblocks-pixel-control > :first-child { flex:1; min-width:0; }
+.zmblocks-pixel-control > :nth-child(2) { width:72px; flex:none; }
+.zmblocks-pixel-control .components-base-control__field { margin-bottom:0; }
+.zmblocks-pixel-control > span { line-height:40px; }
