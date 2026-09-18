@@ -1,0 +1,116 @@
+{
+  "apiVersion": 3,
+  "version": "1.2.4",
+  "name": "zmblocks/accordion",
+  "title": "ZM Accordion",
+  "category": "zmblocks",
+  "icon": "menu-alt",
+  "textdomain": "zmblocks",
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "multiple": {
+      "type": "boolean",
+      "default": false
+    },
+    "collapsible": {
+      "type": "boolean",
+      "default": true
+    },
+    "animation": {
+      "type": "boolean",
+      "default": true
+    },
+    "active": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0
+    },
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "headingLevel": {
+      "type": "string",
+      "default": "h3",
+      "enum": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6"
+      ]
+    },
+    "titleStyle": {
+      "type": "string",
+      "enum": [
+        "accordion",
+        "heading",
+        "small",
+        "medium",
+        "large",
+        "xlarge",
+        "2xlarge",
+        "3xlarge",
+        "lead",
+        "meta"
+      ],
+      "default": "accordion"
+    },
+    "textAlign": {
+      "type": "string",
+      "enum": [
+        "",
+        "left",
+        "center",
+        "right"
+      ],
+      "default": ""
+    },
+    "decoration": {
+      "type": "string",
+      "enum": [
+        "",
+        "divider",
+        "bullet"
+      ],
+      "default": ""
+    },
+    "weight": {
+      "type": "string",
+      "enum": [
+        "",
+        "light",
+        "normal",
+        "bold",
+        "lighter",
+        "bolder"
+      ],
+      "default": ""
+    },
+    "transform": {
+      "type": "string",
+      "enum": [
+        "",
+        "uppercase",
+        "lowercase",
+        "capitalize"
+      ],
+      "default": ""
+    }
+  },
+  "providesContext": {
+    "zmblocks/accordion/headingLevel": "headingLevel",
+    "zmblocks/accordion/titleStyle": "titleStyle",
+    "zmblocks/accordion/textAlign": "textAlign",
+    "zmblocks/accordion/decoration": "decoration",
+    "zmblocks/accordion/weight": "weight",
+    "zmblocks/accordion/transform": "transform"
+  }
+}

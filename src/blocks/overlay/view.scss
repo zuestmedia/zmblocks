@@ -14,7 +14,8 @@
 .zmblocks-overlay-bottom > .zmblocks-overlay-content { justify-content:flex-end; }
 .zmblocks-overlay-hover > .zmblocks-overlay-content { opacity:0; }
 .zmblocks-overlay-hover.zmblocks-overlay-slide > .zmblocks-overlay-content { transform:translateY(16px); }
-.zmblocks-overlay-hover:focus-within > .zmblocks-overlay-content,
+.zmblocks-overlay-hover:focus-visible > .zmblocks-overlay-content,
+.zmblocks-overlay-hover:has(:focus-visible) > .zmblocks-overlay-content,
 .zmblocks-card.zmblocks-content-link:focus-visible .zmblocks-overlay-hover > .zmblocks-overlay-content,
 .zmblocks-overlay-hover[data-zmblocks-touch-open] > .zmblocks-overlay-content { opacity:1; transform:none; }
 @media (hover:hover) { .zmblocks-overlay-hover:hover > .zmblocks-overlay-content { opacity:1; transform:none; } }

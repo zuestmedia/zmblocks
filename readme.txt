@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, uikit, layout
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 1.0.0
+Stable tag: 1.2.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,6 +18,8 @@ No ZuestMedia theme, ZMPlugin, ZMPro, license or external service is required.
 
 = Layout blocks =
 
+* Tabs / Switcher: top, left or right navigation, editable titles, arbitrary content, tab count and responsive layout.
+* Accordion: editable headings and nested content, multiple opening, initial item selection and optional animation.
 * Section: backgrounds, content width, spacing, viewport height and vertical alignment.
 * Grid and Column: responsive columns and widths, gaps, flex alignment and ordering, dividers, Scrollspy and optional Masonry. Columns accept any blocks.
 * Card: editable inner blocks, style variants, colors, background images, shadows, individual corner radii and links.
@@ -89,6 +91,42 @@ The pinned UIkit sources are obtained with npm ci; ZMBlocks includes its integra
 WordPress editor packages are used through WordPress's registered script dependencies. The plugin itself is licensed under GPLv2 or later; see LICENSE.
 
 == Changelog ==
+
+= 1.2.4 =
+* Reveal hover overlays for visible keyboard focus rather than all pointer-induced focus.
+* Clear the touch-open overlay state when a ZMBlocks lightbox opens, while retaining focus restoration and keyboard access.
+
+= 1.2.3 =
+* Keep the selected Button colors and style when no valid link is set, using non-interactive markup instead of a disabled button.
+
+= 1.2.2 =
+* Move shared Accordion title appearance, heading level and alignment to the parent block.
+* Items inherit parent settings unless Custom title design is enabled; preserve existing non-default item styles.
+
+= 1.2.1 =
+* Add inline SVG previews for the empty Grid and all five responsive presets (2-6 columns), showing desktop columns and breakpoint counts.
+* Start new Grids with a layout picker: an empty default and five responsive presets (2-6 columns), each containing one empty Column.
+* Simplify columns per row to one common control, with an expandable four-breakpoint mode and inheritance.
+* Preserve existing Grid breakpoints and keep Query Grid and individual Column controls unchanged.
+
+= 1.2.0 =
+* Add Tabs / Switcher and Tab blocks with top, left and right navigation; side tabs become horizontal below 960px.
+* Add a tab counter, empty-tab insertion, editable titles, initial tab and optional animation.
+* Keep all content editable in the editor and readable without JavaScript; use UIkit keyboard and ARIA support on the website.
+
+= 1.1.1 =
+* Add native heading-level and alignment toolbars to Accordion Item titles, including H1 through H6.
+* Add UIkit accordion title appearance, heading sizes, lead/meta, divider/bullet, font weight and text transform.
+* Use the UIkit accordion title appearance by default.
+
+= 1.1.0 =
+* Add Accordion and Accordion Item blocks with editable titles and arbitrary inner blocks.
+* Support multiple open items, collapsible panels, initial open item and reduced-motion-aware animation.
+* Package ZIPs directly in artifacts after validation; avoid renaming extracted source directories.
+
+= 1.0.1 =
+* Add the ZuestMedia update channel and download ID for integration with the existing ZMPro updater.
+* Simplify the readme by removing technical update-channel details.
 
 = 1.0.0 =
 * Initial stable release with Section, Grid, Column, Card, Image, Icon, Button, Filter and Overlay blocks.

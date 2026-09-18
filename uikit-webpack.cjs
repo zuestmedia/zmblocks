@@ -9,7 +9,7 @@ module.exports = class UIkitSectionBuild {
     compiler.hooks.thisCompilation.tap('ZMBlocksUIkit', (compilation) => {
       compilation.hooks.processAssets.tap('ZMBlocksUIkit', () => {
         const root = compiler.context;
-        for (const component of ['section', 'container', 'grid', 'card', 'button', 'typography']) {
+        for (const component of ['section', 'container', 'grid', 'card', 'button', 'typography', 'accordion', 'tab']) {
         const result = sass.compile(path.join(root, `src/uikit/${component}.scss`), {
           loadPaths: [path.join(root, 'node_modules')], style: 'compressed',
           // UIkit 3's official entrypoints use imports. Do not silence other warnings.
@@ -36,7 +36,9 @@ module.exports = class UIkitSectionBuild {
           if (component === 'card' && rule.selector.includes('uk-card-media')) { rule.remove(); return; }
           rule.selectors = rule.selectors.map((selector) => {
             if (component === 'grid' && /^\*\s*\+\s*\.uk-grid-margin/.test(selector)) return ':where(.zmblocks-grid) > ' + selector.replace(/^\*\s*\+\s*/, '');
+            if (component === 'tab') return ':where(.zmblocks-tabs) ' + selector;
             if (component === 'card') return ':where(.zmblocks-card)' + selector;
+            if (component === 'accordion' && !/^\.uk-accordion(?=[\s:>+~]|$)/.test(selector)) return ':where(.zmblocks-accordion) ' + selector;
             if (component === 'button') return ':where(.zmblocks-button) ' + selector;
             if (!selector.startsWith(`.uk-${component}`)) throw new Error(`Unexpected global UIkit selector: ${selector}`);
             return `:where(.zmblocks-${component})${selector}`;
@@ -55,7 +57,7 @@ module.exports = class UIkitSectionBuild {
         compilation.fileDependencies.add(typographySchema);
         compilation.emitAsset('typography-schema.json', new RawSource(readFileSync(typographySchema)));
         compilation.emitAsset('uikit/LICENSE-UIKIT.txt', new RawSource(readFileSync(path.join(root, 'node_modules/uikit/LICENSE.md'))));
-        compilation.emitAsset('uikit/manifest.json', new RawSource(JSON.stringify({ version: pkg.version, css: ['section', 'container', 'grid', 'card', 'button', 'typography'], js: ['filter', 'lightbox', 'scrollspy', 'grid'], icons: "static-svg" }, null, 2)));
+        compilation.emitAsset('uikit/manifest.json', new RawSource(JSON.stringify({ version: pkg.version, css: ['section', 'container', 'grid', 'card', 'button', 'typography', 'accordion', 'tab'], js: ['filter', 'lightbox', 'scrollspy', 'grid', 'accordion', 'tab'], icons: "static-svg" }, null, 2)));
       });
     });
   }

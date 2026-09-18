@@ -1,4 +1,6 @@
 import UIkit from 'uikit/src/js/api/index';
+import {registerTabs,tabs} from './tabs';
+import Accordion from 'uikit/src/js/core/accordion';
 import Scrollspy from 'uikit/src/js/core/scrollspy';
 import Filter from 'uikit/src/js/components/filter';
 import Lightbox from 'uikit/src/js/components/lightbox';
@@ -7,18 +9,25 @@ import {gridLines} from './grid-lines';
 import {masonrySelector, registerMasonry, masonry} from './masonry';
 
 // No UIkit boot/global: only explicitly marked ZMBlocks elements are initialized.
+UIkit.component('accordion',Accordion);
 UIkit.component('filter',Filter);
 UIkit.component('scrollspy',Scrollspy);
 UIkit.component('lightbox',Lightbox);
 registerMasonry(UIkit);
+registerTabs(UIkit);
 const initialized=new WeakSet();
 let filterId=0;
 function initialize(root=document) {
- const selector='[data-zmblocks-filter],[data-zmblocks-lightbox],[data-zmblocks-scrollspy],[data-zmblocks-grid-lines],'+masonrySelector;
+ const selector='[data-zmblocks-tabs],[data-zmblocks-accordion],[data-zmblocks-filter],[data-zmblocks-lightbox],[data-zmblocks-scrollspy],[data-zmblocks-grid-lines],'+masonrySelector;
  const nodes=[...(root.matches?.(selector)?[root]:[]),...root.querySelectorAll(selector)];
  for(const el of nodes) {
   if(initialized.has(el)) continue;
   initialized.add(el);
+  if(el.hasAttribute('data-zmblocks-tabs')) tabs(UIkit,el);
+  if(el.hasAttribute('data-zmblocks-accordion')) {
+   const active=Number(el.dataset.zmblocksActive)||0;
+   UIkit.accordion(el,{targets:'> .zmblocks-accordion-item',toggle:'> .zmblocks-accordion-heading > .uk-accordion-title',content:'> .uk-accordion-content',multiple:el.dataset.zmblocksMultiple==='true',collapsible:el.dataset.zmblocksCollapsible!=='false',active:active>0?active-1:false,animation:el.dataset.zmblocksAnimation!=='false'&&!matchMedia('(prefers-reduced-motion: reduce)').matches});
+  }
   if(el.matches(masonrySelector)) masonry(UIkit,el);
   if(el.hasAttribute('data-zmblocks-grid-lines')) gridLines(el);
   if(el.hasAttribute('data-zmblocks-scrollspy')) {

@@ -77,7 +77,7 @@ final class StatusPage {
         <div class="wrap zmblocks-overview">
             <h1><?php esc_html_e( 'ZMBlocks', 'zmblocks' ); ?></h1>
             <p><?php esc_html_e( 'UIkit layout blocks for the WordPress editor.', 'zmblocks' ); ?></p>
-            <div class="notice notice-info inline"><p><?php esc_html_e( 'Section, Grid, Card, Image, Icon, Button, Filter and Overlay are available in the ZM Blocks category. Grid always contains Columns; Cards are optional. The Filterable showcase pattern combines editable blocks with your own categories. Image offers a full-screen lightbox.', 'zmblocks' ); ?></p></div>
+            <div class="notice notice-info inline"><p><?php esc_html_e( 'Tabs / Switcher, Accordion, Section, Grid, Card, Image, Icon, Button, Filter and Overlay are available in the ZM Blocks category. Grid always contains Columns; Cards are optional. The Filterable showcase pattern combines editable blocks with your own categories. Image offers a full-screen lightbox.', 'zmblocks' ); ?></p></div>
             <h2><?php esc_html_e( 'Available blocks', 'zmblocks' ); ?></h2>
             <table class="widefat striped">
                 <caption class="screen-reader-text"><?php esc_html_e( 'Block registration and features', 'zmblocks' ); ?></caption>
@@ -99,7 +99,7 @@ final class StatusPage {
             <p><?php esc_html_e( 'ZM Query Grid: insert this Query Loop variation from the block inserter. WordPress supplies posts, filters and pagination. Select its Post Template for responsive columns and gaps, and edit the nested ZM Card once for all posts. The normal Grid and Column blocks are unchanged.', 'zmblocks' ); ?></p>
             <p><?php esc_html_e( 'Filterable showcase: editable Cards, Images and Overlays with two freely editable sample categories. Patterns supply initial content only; new Grid Columns are always empty.', 'zmblocks' ); ?></p>
             <h2><?php esc_html_e( 'Planned extensions — not yet available', 'zmblocks' ); ?></h2>
-            <p><?php esc_html_e( 'Next: Accordion, Tabs / Switcher, Gallery, Slider and Slideshow. Central font management is a later optional ZMPlugin integration.', 'zmblocks' ); ?></p>
+            <p><?php esc_html_e( 'Next: Gallery, Slider and Slideshow. Central font management is a later optional ZMPlugin integration.', 'zmblocks' ); ?></p>
             <h2><?php esc_html_e( 'Environment', 'zmblocks' ); ?></h2>
             <table class="widefat striped">
                 <caption class="screen-reader-text"><?php esc_html_e( 'ZMBlocks environment information', 'zmblocks' ); ?></caption>

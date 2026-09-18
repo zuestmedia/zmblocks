@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit;
 
 final class Registry {
     /** Shared inventory for registration, diagnostics and the administration page. */
-    public const NAMES = array( 'section', 'icon', 'grid', 'column', 'card', 'image', 'button', 'filter', 'overlay' );
+    public const NAMES = array( 'section', 'icon', 'grid', 'column', 'card', 'image', 'button', 'filter', 'accordion', 'accordion-item', 'tabs', 'tab-item', 'overlay' );
 
     public static function catalog(): array {
         return array(
@@ -17,6 +17,10 @@ final class Registry {
             'image' => array( __( 'Image', 'zmblocks' ), __( 'Image box with natural/full/custom width, alignment, padding/margin, captions and optional lightbox.', 'zmblocks' ) ),
             'button' => array( __( 'Button', 'zmblocks' ), __( 'Links styled as buttons, with optional inline icons.', 'zmblocks' ) ),
             'filter' => array( __( 'Filter', 'zmblocks' ), __( 'Freely named categories filtering Grid Columns.', 'zmblocks' ) ),
+            'accordion' => array( __( 'Accordion', 'zmblocks' ), __( 'Collapsible items with editable titles, arbitrary blocks and optional multiple opening.', 'zmblocks' ) ),
+            'accordion-item' => array( __( 'Accordion Item', 'zmblocks' ), __( 'Heading and content inside Accordion.', 'zmblocks' ) ),
+            'tabs' => array( __( 'Tabs / Switcher', 'zmblocks' ), __( 'Editable tabs above, left or right of their content, with responsive layout and animation.', 'zmblocks' ) ),
+            'tab-item' => array( __( 'Tab', 'zmblocks' ), __( 'Editable title and arbitrary content inside Tabs / Switcher.', 'zmblocks' ) ),
             'overlay' => array( __( 'Overlay', 'zmblocks' ), __( 'Image with editable overlay content, hover/focus effects and rounded corners.', 'zmblocks' ) ),
         );
     }

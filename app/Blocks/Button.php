@@ -21,7 +21,7 @@ final class Button {
             $target = $v['newTab'] ? ' target="_blank" rel="noopener noreferrer"' : '';
             $control = '<a class="' . esc_attr( $classes ) . '" href="' . $url . '"' . $target . '>' . $inner . '</a>';
         } else {
-            $control = '<button class="' . esc_attr( $classes ) . '" type="button" disabled>' . $inner . '</button>';
+            $control = '<span class="' . esc_attr( $classes . ' zmblocks-button-unlinked' ) . '">' . $inner . '</span>';
         }
         $extra = array( 'class' => 'zmblocks-button zmblocks-button-align-' . $v['alignment'] . ( $v['fullWidth'] ? ' zmblocks-button-full' : '' ) );
         if ( '' !== $v['anchor'] ) { $extra['id'] = $v['anchor']; }

@@ -1,8 +1,8 @@
 /** @jsxRuntime classic */
 /** @jsx createElement */
 /** @jsxFrag Fragment */
-import {createElement, Fragment} from '@wordpress/element';
-import {TabPanel, Button, SelectControl} from '@wordpress/components';
+import {createElement, Fragment, useState} from '@wordpress/element';
+import {TabPanel, Button, SelectControl, ToggleControl} from '@wordpress/components';
 import {__} from '@wordpress/i18n';
 import {breakpoints} from './grid-options';
 import './responsive-controls.scss';
@@ -34,4 +34,13 @@ export function ColumnResponsiveControls({values:v,setAttributes,schema}) {
 
 export function GridResponsiveControls({values:v,setAttributes}) {
  return <ResponsiveTabs count={4} hasOverride={key=>!!v['columns'+key]}>{key=><Choices label={__('Columns per row','zmblocks')} value={v['columns'+key]} options={[...(key?[{value:'',label:__('Inherit','zmblocks')}]:[]),...['1','2','3','4','5','6'].map(value=>({value,label:value}))]} onChange={value=>setAttributes({['columns'+key]:value})}/>}</ResponsiveTabs>;
+}
+
+/** Compact controls for the layout Grid; Query Grid retains its own controls. */
+export function GridColumnCountControls({values:v,setAttributes}) {
+ const [expanded,setExpanded]=useState(()=>['Small','Medium','Large'].some(key=>!!v['columns'+key]));
+ const numbers=['1','2','3','4','5','6'].map(value=>({value,label:value}));
+ return <div><ToggleControl label={__('Responsive columns per row','zmblocks')} checked={expanded} onChange={enabled=>{setExpanded(enabled);if(!enabled)setAttributes({columnsSmall:'',columnsMedium:'',columnsLarge:''});}} help={__('When disabled, the common count applies to all screen sizes. Individual column widths still take precedence.','zmblocks')}/>
+ {expanded?<div>{breakpoints.slice(0,4).map(([key,,label])=><SelectControl key={key||'base'} label={label} value={v['columns'+key]} options={key?[{value:'',label:__('Inherit','zmblocks')},...numbers]:numbers} onChange={value=>setAttributes({['columns'+key]:value})}/>)}<p>{__('Inherit uses the setting from the smaller screen size.','zmblocks')}</p></div>:<Choices label={__('Columns per row (all sizes)','zmblocks')} value={v.columns} options={numbers} onChange={columns=>setAttributes({columns,columnsSmall:'',columnsMedium:'',columnsLarge:''})}/>}
+ </div>;
 }

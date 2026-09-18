@@ -6,13 +6,17 @@
     "grid",
     "card",
     "button",
-    "typography"
+    "typography",
+    "accordion",
+    "tab"
   ],
   "js": [
     "filter",
     "lightbox",
     "scrollspy",
-    "grid"
+    "grid",
+    "accordion",
+    "tab"
   ],
   "icons": "static-svg"
 }

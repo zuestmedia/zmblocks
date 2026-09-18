@@ -1,0 +1,27 @@
+.zmblocks-tabs { min-width:0; }
+.zmblocks-tabs > .zmblocks-tabs-navigation { min-width:0; }
+.zmblocks-tabs > .zmblocks-tabs-panels { min-width:0; margin:0; padding:0; }
+.zmblocks-tabs > .zmblocks-tabs-navigation > .uk-tab { margin-top:0; }
+.zmblocks-tabs > .zmblocks-tabs-navigation > .uk-tab > li > a { text-decoration:none; border-bottom:2px solid transparent; }
+.zmblocks-tabs > .zmblocks-tabs-navigation > .uk-tab > .uk-active > a { border-color:currentColor; }
+.zmblocks-tabs > .zmblocks-tabs-navigation > .uk-tab > li > a:focus-visible { outline:2px solid currentColor; outline-offset:2px; }
+.zmblocks-tabs[data-zmblocks-tabs-ready] > .zmblocks-tabs-panels > .zmblocks-tab-item:not(.uk-active) { display:none; }
+.zmblocks-tabs[data-zmblocks-tabs-ready] > .zmblocks-tabs-panels > .zmblocks-tab-item > .zmblocks-tab-title { display:none; }
+@media(min-width:960px) {
+ .zmblocks-tabs-left,.zmblocks-tabs-right { display:grid; grid-template-columns:auto minmax(0,1fr); gap:24px; }
+ .zmblocks-tabs-right { grid-template-columns:minmax(0,1fr) auto; }
+ .zmblocks-tabs-right > .zmblocks-tabs-navigation { grid-column:2; grid-row:1; }
+ .zmblocks-tabs-right > .zmblocks-tabs-panels { grid-column:1; grid-row:1; }
+ .zmblocks-tabs-left > .zmblocks-tabs-navigation > .uk-tab > li > a { border-bottom:0; border-right:2px solid transparent; }
+ .zmblocks-tabs-right > .zmblocks-tabs-navigation > .uk-tab > li > a { border-bottom:0; border-left:2px solid transparent; }
+ .zmblocks-tabs > .zmblocks-tabs-navigation > .uk-tab > .uk-active > a { border-color:currentColor; }
+}
+
+.zmblocks-tabs > .zmblocks-tabs-panels > [class*="uk-animation-"] { animation-duration:.2s; animation-fill-mode:both; }
+.zmblocks-tabs > .zmblocks-tabs-panels > .uk-animation-fade { animation-name:zmblocks-tab-fade; }
+.zmblocks-tabs > .zmblocks-tabs-panels > .uk-animation-slide-left-small { animation-name:zmblocks-tab-left; }
+.zmblocks-tabs > .zmblocks-tabs-panels > .uk-animation-slide-bottom-small { animation-name:zmblocks-tab-bottom; }
+@keyframes zmblocks-tab-fade { from { opacity:0; } to { opacity:1; } }
+@keyframes zmblocks-tab-left { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:translateX(0); } }
+@keyframes zmblocks-tab-bottom { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+@media(prefers-reduced-motion:reduce) { .zmblocks-tabs > .zmblocks-tabs-panels > [class*="uk-animation-"] { animation:none !important; } }

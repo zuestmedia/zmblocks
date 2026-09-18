@@ -1,0 +1,9 @@
+.zmblocks-accordion .zmblocks-accordion-heading { margin:0; }
+.zmblocks-accordion > .zmblocks-accordion-item { margin-left:0; }
+.zmblocks-accordion button.uk-accordion-title { display:block; width:100%; text-align:inherit; font-family:inherit; font-weight:inherit; text-transform:inherit; letter-spacing:inherit; padding:0; border:0; background:transparent; cursor:pointer; }
+.zmblocks-accordion button.uk-accordion-title:focus-visible { outline:2px solid currentColor; outline-offset:4px; }
+.zmblocks-accordion button.uk-accordion-title::after { content:'+'; float:right; margin-inline-start:12px; }
+.zmblocks-accordion > .uk-open > .zmblocks-accordion-heading > button.uk-accordion-title::after { content:'\2212'; }
+
+.zmblocks-accordion .zmblocks-custom-title > button.uk-accordion-title { font:inherit; color:inherit; letter-spacing:inherit; text-transform:inherit; }
+.zmblocks-accordion .zmblocks-accordion-heading.uk-heading-divider { padding-bottom:10px; }

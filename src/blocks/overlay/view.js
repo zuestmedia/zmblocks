@@ -22,3 +22,8 @@ document.addEventListener('click', event => {
  event.stopPropagation();
 }, true);
 document.addEventListener('keydown', event => { if (event.key === 'Escape') close(); });
+
+// A second touch can open a lightbox before an outside tap closes the overlay.
+document.addEventListener('show', event => {
+ if (event.target instanceof Element && event.target.matches('.zmblocks-lightbox')) close();
+}, true);

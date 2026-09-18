@@ -1,0 +1,29 @@
+{
+  "apiVersion": 3,
+  "version": "1.2.4",
+  "name": "zmblocks/tab-item",
+  "title": "ZM Tab",
+  "category": "zmblocks",
+  "icon": "index-card",
+  "textdomain": "zmblocks",
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "anchor": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "parent": [
+    "zmblocks/tabs"
+  ]
+}

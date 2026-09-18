@@ -2,7 +2,7 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "zmblocks/grid",
-  "version": "1.0.0",
+  "version": "1.2.4",
   "title": "ZM Grid",
   "category": "zmblocks",
   "icon": "grid-view",
@@ -171,6 +171,10 @@
         "next"
       ],
       "default": "none"
+    },
+    "layoutChosen": {
+      "type": "boolean",
+      "default": false
     }
   },
   "supports": {

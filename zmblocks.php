@@ -2,7 +2,7 @@
 /**
  * Plugin Name: ZMBlocks
  * Description: Independent UIkit layout blocks for WordPress, with optional ZuestMedia integration and modular fallback styles.
- * Version: 1.0.0
+ * Version: 1.2.4
  * Requires at least: 6.5
  * Requires PHP: 8.2
  * Author: ZuestMedia
@@ -11,6 +11,8 @@
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: zmblocks
  * Domain Path: /languages
+ * ZMDLID: q8c3651pw4ihrtrkhuzmfbe46ju907iqfr0y
+ * ZMUPDAPI: zm
  *
  * @package ZMBlocks
  */
@@ -29,7 +31,7 @@ if ( version_compare( PHP_VERSION, '8.2', '<' ) || version_compare( $GLOBALS['wp
     return;
 }
 
-define( 'ZMBLOCKS_VERSION', '1.0.0' );
+define( 'ZMBLOCKS_VERSION', '1.2.4' );
 define( 'ZMBLOCKS_FILE', __FILE__ );
 
 require_once __DIR__ . '/app/Autoloader.php';

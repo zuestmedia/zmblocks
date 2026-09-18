@@ -1,0 +1,115 @@
+{
+  "apiVersion": 3,
+  "version": "1.2.4",
+  "name": "zmblocks/accordion-item",
+  "title": "ZM Accordion Item",
+  "category": "zmblocks",
+  "icon": "menu-alt",
+  "textdomain": "zmblocks",
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "headingLevel": {
+      "type": "string",
+      "default": "h3",
+      "enum": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6"
+      ]
+    },
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "titleStyle": {
+      "type": "string",
+      "enum": [
+        "accordion",
+        "heading",
+        "small",
+        "medium",
+        "large",
+        "xlarge",
+        "2xlarge",
+        "3xlarge",
+        "lead",
+        "meta"
+      ],
+      "default": "accordion"
+    },
+    "textAlign": {
+      "type": "string",
+      "enum": [
+        "",
+        "left",
+        "center",
+        "right"
+      ],
+      "default": ""
+    },
+    "decoration": {
+      "type": "string",
+      "enum": [
+        "",
+        "divider",
+        "bullet"
+      ],
+      "default": ""
+    },
+    "weight": {
+      "type": "string",
+      "enum": [
+        "",
+        "light",
+        "normal",
+        "bold",
+        "lighter",
+        "bolder"
+      ],
+      "default": ""
+    },
+    "transform": {
+      "type": "string",
+      "enum": [
+        "",
+        "uppercase",
+        "lowercase",
+        "capitalize"
+      ],
+      "default": ""
+    },
+    "titleDesign": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "inherit",
+        "custom"
+      ],
+      "default": "auto"
+    }
+  },
+  "parent": [
+    "zmblocks/accordion"
+  ],
+  "usesContext": [
+    "zmblocks/accordion/headingLevel",
+    "zmblocks/accordion/titleStyle",
+    "zmblocks/accordion/textAlign",
+    "zmblocks/accordion/decoration",
+    "zmblocks/accordion/weight",
+    "zmblocks/accordion/transform"
+  ]
+}

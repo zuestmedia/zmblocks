@@ -1,0 +1,2 @@
+/*! UIkit 3.23.12 | MIT | see LICENSE-UIKIT.txt */
+:where(.zmblocks-accordion).uk-accordion{padding:0;list-style:none}:where(.zmblocks-accordion).uk-accordion>:nth-child(n+2){margin-top:20px}:where(.zmblocks-accordion) .uk-accordion-title{display:block;font-size:1.25rem;line-height:1.4;color:#333}:where(.zmblocks-accordion) .uk-accordion-title:hover{color:#666;text-decoration:none}:where(.zmblocks-accordion) .uk-accordion-content{display:flow-root;margin-top:20px}:where(.zmblocks-accordion) .uk-accordion-content>:last-child{margin-bottom:0}

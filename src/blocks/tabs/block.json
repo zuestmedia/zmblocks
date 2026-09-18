@@ -1,0 +1,50 @@
+{
+  "apiVersion": 3,
+  "version": "1.2.4",
+  "name": "zmblocks/tabs",
+  "title": "ZM Tabs / Switcher",
+  "category": "zmblocks",
+  "icon": "index-card",
+  "textdomain": "zmblocks",
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "position": {
+      "type": "string",
+      "enum": [
+        "top",
+        "left",
+        "right"
+      ],
+      "default": "top"
+    },
+    "active": {
+      "type": "integer",
+      "minimum": 1,
+      "default": 1
+    },
+    "animation": {
+      "type": "string",
+      "enum": [
+        "none",
+        "fade",
+        "slide-left-small",
+        "slide-bottom-small"
+      ],
+      "default": "fade"
+    },
+    "label": {
+      "type": "string",
+      "default": ""
+    },
+    "anchor": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}

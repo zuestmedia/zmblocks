@@ -1,4 +1,5 @@
 .zmblocks-button { min-width: 0; }
+.zmblocks-button .zmblocks-button-unlinked { cursor: default; }
 .zmblocks-button .zmblocks-button-control {
   display: inline-flex; align-items: center; justify-content: center; gap: .5em;
   box-sizing: border-box; max-width: 100%; text-decoration: none;

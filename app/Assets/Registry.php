@@ -12,7 +12,7 @@ final class Registry {
     public function register(): void {
         add_action( 'wp_enqueue_scripts', array( $this, 'preload' ), 20 );
         add_action( 'enqueue_block_assets', array( $this, 'editor' ), 20 );
-        foreach ( array( 'section', 'icon', 'grid', 'column', 'card', 'image', 'button', 'filter', 'overlay' ) as $name ) {
+        foreach ( array( 'section', 'icon', 'grid', 'column', 'card', 'image', 'button', 'filter', 'overlay', 'accordion', 'accordion-item', 'tabs', 'tab-item' ) as $name ) {
             add_filter( 'render_block_zmblocks/' . $name, array( $this, 'rendered' ), 10, 2 );
         }
     }
@@ -22,10 +22,11 @@ final class Registry {
     }
 
     public function blockStyles( string $component, string $context ): array {
-        if ( ! in_array( $component, array( 'section', 'container', 'icon', 'grid', 'column', 'card', 'image', 'button', 'filter', 'overlay' ), true ) ) { return array(); }
+        if ( ! in_array( $component, array( 'section', 'container', 'icon', 'grid', 'column', 'card', 'image', 'button', 'filter', 'overlay', 'accordion', 'accordion-item', 'tabs', 'tab-item' ), true ) ) { return array(); }
         $base = $this->localStyle( 'zmblocks-' . $component, 'blocks/' . $component . '/view.css' );
         if ( 'section' === $component ) { $base = array_merge( $this->blockStyles( 'container', $context ), $base ); }
-        if ( in_array( $component, array( 'icon', 'image', 'column', 'filter', 'overlay' ), true ) ) { return $base; }
+        if ( in_array( $component, array( 'icon', 'image', 'column', 'filter', 'overlay', 'accordion-item', 'tab-item' ), true ) ) { return $base; }
+        if ( 'tabs' === $component ) { $component = 'tab'; }
         $provider = $this->environment->getProvider( $context );
         $supported = null === $provider['version'] || version_compare( $provider['version'], '3.0.0', '>=' )
             && version_compare( $provider['version'], '4.0.0', '<' );
@@ -62,7 +63,7 @@ final class Registry {
         // Optimize the common singular case. Rendering below handles all other sources.
         if ( ! is_singular() ) { return; }
         $post = get_queried_object();
-        foreach ( array( 'section', 'icon', 'grid', 'column', 'card', 'image', 'button', 'filter', 'overlay' ) as $name ) {
+        foreach ( array( 'section', 'icon', 'grid', 'column', 'card', 'image', 'button', 'filter', 'overlay', 'accordion', 'accordion-item', 'tabs', 'tab-item' ) as $name ) {
             if ( $post instanceof \WP_Post && has_block( 'zmblocks/' . $name, $post ) ) {
                 $this->blockStyles( $name, 'frontend' );
             }
@@ -74,7 +75,7 @@ final class Registry {
         $screen = get_current_screen();
         if ( ! $screen || ! $screen->is_block_editor() ) { return; }
         // Available before insertion, including inside the content iframe. No UIkit JS.
-        foreach ( array( 'section', 'icon', 'grid', 'column', 'card', 'image', 'button', 'filter', 'overlay' ) as $name ) { $this->blockStyles( $name, 'editor-content' ); }
+        foreach ( array( 'section', 'icon', 'grid', 'column', 'card', 'image', 'button', 'filter', 'overlay', 'accordion', 'accordion-item', 'tabs', 'tab-item' ) as $name ) { $this->blockStyles( $name, 'editor-content' ); }
     }
 
     public function rendered( string $html, array $block ): string {
@@ -83,7 +84,7 @@ final class Registry {
             wp_enqueue_script( 'zmblocks-overlay-touch', plugins_url( 'build/blocks/overlay/view.js', $this->pluginFile ), array(), (string) filemtime( dirname( $this->pluginFile ) . '/build/blocks/overlay/view.js' ), true );
         }
         $interactiveGrid = 'zmblocks/grid' === ( $block['blockName'] ?? '' ) && ( 'none' !== ( $block['attrs']['masonry'] ?? 'none' ) || ! empty( $block['attrs']['divider'] ) || 'none' !== ( $block['attrs']['scrollspy'] ?? 'none' ) );
-        if ( $interactiveGrid || 'zmblocks/filter' === ( $block['blockName'] ?? '' ) || ( 'zmblocks/image' === ( $block['blockName'] ?? '' ) && 'lightbox' === ( $block['attrs']['linkDestination'] ?? '' ) ) ) {
+        if ( 'zmblocks/tabs' === ( $block['blockName'] ?? '' ) || 'zmblocks/accordion' === ( $block['blockName'] ?? '' ) || $interactiveGrid || 'zmblocks/filter' === ( $block['blockName'] ?? '' ) || ( 'zmblocks/image' === ( $block['blockName'] ?? '' ) && 'lightbox' === ( $block['attrs']['linkDestination'] ?? '' ) ) ) {
             wp_enqueue_script( 'zmblocks-interactive', plugins_url( 'build/interactive.js', $this->pluginFile ), array(), (string) filemtime( dirname( $this->pluginFile ) . '/build/interactive.js' ), true );
         }
         $handles = $this->blockStyles( substr( $block['blockName'] ?? 'zmblocks/section', 9 ), 'frontend' );
